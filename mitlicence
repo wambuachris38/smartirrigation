@@ -1,0 +1,35 @@
+
+---
+
+## ⚙️ Sample Backend Code (`backend/app.py`)
+
+```python
+from flask import Flask, jsonify, request
+import random, datetime
+
+app = Flask(__name__)
+
+irrigation_log = []
+
+@app.route('/')
+def home():
+    return "Welcome to Smart Irrigation API 🌾"
+
+@app.route('/moisture', methods=['GET'])
+def get_moisture():
+    moisture = random.randint(20, 90)
+    status = "Irrigation ON" if moisture < 40 else "Irrigation OFF"
+    data = {
+        "timestamp": str(datetime.datetime.now()),
+        "moisture": moisture,
+        "status": status
+    }
+    irrigation_log.append(data)
+    return jsonify(data)
+
+@app.route('/logs', methods=['GET'])
+def get_logs():
+    return jsonify(irrigation_log)
+
+if __name__ == '__main__':
+    app.run(debug=True)
