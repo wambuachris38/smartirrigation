@@ -1,0 +1,22 @@
+SmartIrrigationSystem/
+│
+├── README.md
+├── LICENSE
+├── requirements.txt
+│
+├── backend/
+│   ├── app.py
+│   ├── irrigation_logic.py
+│   ├── models.py
+│   └── database.db
+│
+├── frontend/
+│   ├── index.html
+│   ├── dashboard.html
+│   ├── styles.css
+│   └── scripts.js
+│
+└── assets/
+    └── screenshots/
+        ├── dashboard_preview.png
+        └── moisture_chart.png
